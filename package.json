@@ -1,7 +1,7 @@
 {
   "name": "tp2-bd2",
   "version": "1.0.0",
-  "main": "sgbd.js",
+  "main": "src/sgbd/index.js",
   "engines": {
     "node": "20"
   },
