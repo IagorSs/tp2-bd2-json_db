@@ -6,7 +6,7 @@ const fileNames = fs.readdirSync(dir);
 
 const db = {};
 
-fileNames.forEach(async fileName => {
+const promises = fileNames.map(async fileName => {
 	const originFileName = `${dir}/${fileName}`;
 	const leituras = (await import(originFileName, { with: { type: "json" } })).default;
 
@@ -44,4 +44,6 @@ fileNames.forEach(async fileName => {
   })
 });
 
-fs.writeFileSync("./db.json", JSON.stringify(db), { encoding: "utf-8" });
+Promise.all(promises).then(() => {
+  fs.writeFileSync("./db.json", JSON.stringify(db), { encoding: "utf-8" });
+});
