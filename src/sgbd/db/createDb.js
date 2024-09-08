@@ -9,7 +9,6 @@ const db = {};
 fileNames.forEach(async fileName => {
 	const originFileName = `${dir}/${fileName}`;
 	const leituras = (await import(originFileName, { with: { type: "json" } })).default;
-  console.log({leituras});
 
   leituras.forEach(leitura => {
     const id = leitura['ID EQP'];
