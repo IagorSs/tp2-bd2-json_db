@@ -1,4 +1,4 @@
-const fs = require("fs");
+import fs from 'fs';
 
 const dir = "./20230915";
 
@@ -6,9 +6,10 @@ const fileNames = fs.readdirSync(dir);
 
 const db = {};
 
-fileNames.forEach(fileName => {
+fileNames.forEach(async fileName => {
 	const originFileName = `${dir}/${fileName}`;
-	const leituras = require(originFileName);
+	const leituras = (await import(originFileName, { with: { type: "json" } })).default;
+  console.log({leituras});
 
   leituras.forEach(leitura => {
     const id = leitura['ID EQP'];
