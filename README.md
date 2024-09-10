@@ -38,9 +38,7 @@ Para gerar os arquivos que serão usados na base de dados, siga o passo abaixo:
 
 #### Executando as buscas
 
-Para executar as buscas:
-
-1. Execute o comando:
+Para executar as buscas, execute o comando:
 
 ```javaScript
    node src/serviceExamples.js
